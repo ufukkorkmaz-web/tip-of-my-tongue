@@ -8,7 +8,7 @@
   :root{
     --bg1:#1b1446; --bg2:#3a1c71; --bg3:#d76d77; --bg4:#ffaf7b;
     --ink:#fff; --muted:rgba(255,255,255,.72);
-    --glass:rgba(255,255,255,.14); --glass-b:rgba(255,255,255,.28);
+    --glass:rgba(255,255,255,.16); --glass-b:rgba(255,255,255,.28);
     --accent:#ffd54a; --accent2:#4fe3c1; --pink:#ff6fb5;
   }
   *{box-sizing:border-box;margin:0}
@@ -16,16 +16,14 @@
   body{
     font-family:"Trebuchet MS","Segoe UI",system-ui,-apple-system,sans-serif;
     color:var(--ink); overflow:hidden;
-    background:linear-gradient(140deg,var(--bg1),var(--bg2) 45%,var(--bg3) 85%,var(--bg4));
-    background-size:160% 160%; animation:drift 18s ease-in-out infinite alternate;
+    background:
+      radial-gradient(circle at 8% 4%, rgba(108,92,231,.65), transparent 38%),
+      radial-gradient(circle at 92% 98%, rgba(255,111,181,.6), transparent 42%),
+      radial-gradient(circle at 70% 0%, rgba(79,227,193,.22), transparent 30%),
+      linear-gradient(140deg,var(--bg1),var(--bg2) 50%,#7b2f8f 80%,#b0467e);
+    background-color:var(--bg1);
   }
-  @keyframes drift{to{background-position:100% 100%}}
-  .blob{position:fixed;border-radius:50%;filter:blur(60px);opacity:.45;pointer-events:none}
-  .b1{width:42vmax;height:42vmax;background:#6c5ce7;left:-12vmax;top:-10vmax}
-  .b2{width:34vmax;height:34vmax;background:#ff6fb5;right:-10vmax;bottom:-12vmax}
-  .b3{width:22vmax;height:22vmax;background:#4fe3c1;right:18vmax;top:-8vmax;opacity:.28}
   .glass{background:var(--glass);border:1px solid var(--glass-b);
-    backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);
     border-radius:28px;box-shadow:0 20px 60px rgba(10,5,40,.35), inset 0 1px 0 rgba(255,255,255,.35)}
   .screen{position:fixed;inset:0;display:none;padding:clamp(12px,2.4vmin,28px);flex-direction:column;align-items:center;justify-content:center}
   .screen.on{display:flex}
@@ -141,7 +139,6 @@
 </style>
 </head>
 <body>
-<div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
 <canvas id="fx"></canvas>
 
 <!-- START -->
